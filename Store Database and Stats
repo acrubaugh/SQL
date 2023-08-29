@@ -1,0 +1,29 @@
+CREATE TABLE shop (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, size TEXT, color TEXT, cost NUMERIC);
+
+INSERT INTO shop VALUES (1, "FlrlDrss", 10, "M", "white", 25);
+INSERT INTO shop VALUES (2, "BlkDrss", 15, "S", "black", 32);
+INSERT INTO shop VALUES (3, "RedCrdgn", 3, "L", "red", 12);
+INSERT INTO shop VALUES (4, "BlkDrss", 7, "L", "black", 38);
+INSERT INTO shop VALUES (5, "RhnstnJns", 10, "L", "blue", 52);
+INSERT INTO shop VALUES (6, "BchPnts", 15, "S", "white", 35);
+INSERT INTO shop VALUES (7, "BchPnts", 15, "S", "sand", 35);
+INSERT INTO shop VALUES (8, "PnkHd", 10, "M", "pink", 65);
+INSERT INTO shop VALUES (9, "PnkHd", 7, "L", "pink",65);
+INSERT INTO shop VALUES (10, "WhtShrt", 10, "S", "white", 6);
+INSERT INTO shop VALUES (11, "WhtShrt", 20, "M", "white", 6);
+INSERT INTO shop VALUES (12, "DnmShrts", 20, "S", "blue", 35);
+INSERT INTO shop VALUES (13, "PnkPolPnts", 5, "S", "pink", 53);
+INSERT INTO shop VALUES (14, "BlkP_Ct", 12, "S", "black", 72);
+INSERT INTO shop VALUES (15, "BlkP_Ct", 12, "M", "black", 72);
+
+--display the datebase in ascending order.
+SELECT * FROM shop ORDER BY cost ASC;
+
+--display all items that are less than 50 dallars in ascending order.
+SELECT * FROM shop WHERE cost < 50 ORDER BY cost ASC;
+
+--display all items that are the color black.
+SELECT * FROM shop WHERE color is "black";
+
+--display the 3 least commonly purchased items in ascending order. 
+SELECT item, cost, quantity FROM shop ORDER BY quantity ASC LIMIT 3;
