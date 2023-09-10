@@ -219,7 +219,7 @@ INSERT INTO countries(name,population,percent_one_year_change,population_change,
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Seychelles',98347,0.62,608,214,460,-200,2.50,34.00,0);
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Antigua and Barbuda',97929,0.84,811,223,440,0,2.00,34.00,0);
 
-SELECT name, AVG(population) FROM countries GROUP BY name LIMIT 10;
+SELECT name, AVG(population) FROM countries GROUP BY name;
 
 SELECT name, MAX(population) FROM countries;
 
@@ -232,3 +232,5 @@ SELECT name, fertility_rate,
     ELSE "pop growth"
     END as "pop_change" FROM countries
 GROUP BY name;
+
+SELECT * FROM countries WHERE population > 2000000 AND fertility_rate < 2;
