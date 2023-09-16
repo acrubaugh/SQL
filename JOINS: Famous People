@@ -1,0 +1,32 @@
+/* Create table about the people and what they do here */
+CREATE TABLE tv_stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, net_worth REAL);
+
+INSERT INTO tv_stars (name, age, net_worth) VALUES ("Dwayne Johnson", "51", "800000000");
+INSERT INTO tv_stars (name, age, net_worth) VALUES ("Oprah Winfrey", "69", "2500000000");
+INSERT INTO tv_stars (name, age, net_worth) VALUES ("Brad Pitt", "59", 400000000);
+INSERT INTO tv_stars (name, age, net_worth) VALUES("Ellen DeGeneres", "65", 380000000);
+INSERT INTO tv_stars (name, age, net_worth) VALUES ("Tom Cruise", "61", 600000000);
+
+CREATE TABLE most_successful_productions (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, year REAL); 
+
+INSERT INTO most_successful_productions (name, year) VALUES ("furious 7", "2015");
+INSERT INTO most_successful_productions (name, year) VALUES ("the oprah winfrey show", "1986-2011");
+INSERT INTO most_successful_productions (name,year) VALUES ("world war z", 2013);
+INSERT INTO most_successful_productions (name, year) VALUES ("the ellen degeneres show", "2003-2023");
+INSERT INTO most_successful_productions (name, year) VALUES ("top gun: maverick", "2022");
+
+CREATE TABLE celeb_homes (id INTEGER PRIMARY KEY AUTOINCREMENT, location TEXT, cost REAL, sq_ft REAL);
+
+INSERT INTO celeb_homes (location, cost, sq_ft) VALUES ("los_angeles_ca", "27800000", "20130");
+INSERT INTO celeb_homes (location, cost, sq_ft) VALUES ("montecito_ca", "100000000", "29000");
+INSERT INTO celeb_homes (location, cost, sq_ft) VALUES ("carmel_ca", "40000000", "3793");
+INSERT INTO celeb_homes (location, cost, sq_ft) VALUES ("montecito_ca", "27000000", "8188");
+INSERT INTO celeb_homes (location, cost, sq_ft) VALUES ("clearwater_fl", "9580500", "20826");
+
+SELECT celebs.name AS celebs, movie_show.name AS movie_show FROM tv_stars AS celebs
+JOIN most_successful_productions AS movie_show
+ON celebs.id=movie_show.id;
+
+SELECT tv_stars.name AS celebs, celeb_homes.cost AS home_value FROM tv_stars
+JOIN celeb_homes
+ON tv_stars.id=celeb_homes.id;
