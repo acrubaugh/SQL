@@ -1,0 +1,54 @@
+# For this project, I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
+
+#Here, I determined the top 10 most popular songs and it's artist.
+
+SELECT artist_name, track_name
+FROM BIT_DB.Spotifydata
+ORDER BY popularity
+LIMIT 10
+
+#Then I determined the average popularrity of songs that have a danceability of more than 0.500
+
+SELECT AVG(popularity)
+FROM BIT_DB.Spotifydata
+WHERE danceability > 0.500
+
+#Here, I ranked all songs in order of danceability in descending order.
+
+SELECT artist_name, track_name, danceability
+FROM BIT_DB.Spotifydata
+ORDER BY danceability desc
+
+#Lastly, I compared the popularity of each song with the instrumentalness to determine if people like songs with more or less instrumentals.
+
+SELECT artist_name, track_name, popularity desc, instrumentalness
+FROM BIT_DB.Spotifydata
+ORDER BY instrumentalness
